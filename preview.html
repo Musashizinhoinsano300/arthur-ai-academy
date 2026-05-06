@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IA Master Academy - By Arthur</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", Arial, sans-serif;
+    }
+
+    body {
+      background: #050816;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 80px 10%;
+      background:
+        radial-gradient(circle at top left, #2563eb55, transparent 35%),
+        radial-gradient(circle at bottom right, #7c3aed55, transparent 35%),
+        #050816;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .hero-text {
+      max-width: 650px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #111827;
+      border: 1px solid #2563eb;
+      color: #60a5fa;
+      padding: 8px 16px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: #60a5fa;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #cbd5e1;
+      margin-bottom: 30px;
+    }
+
+    .price-box {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid #334155;
+      border-radius: 24px;
+      padding: 30px;
+      max-width: 390px;
+      box-shadow: 0 0 40px #2563eb33;
+    }
+
+    .old-price {
+      color: #94a3b8;
+      text-decoration: line-through;
+      font-size: 18px;
+    }
+
+    .price {
+      font-size: 48px;
+      font-weight: 800;
+      color: #22c55e;
+      margin: 10px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      padding: 18px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px #2563eb99;
+    }
+
+    section {
+      padding: 80px 10%;
+    }
+
+    .section-title {
+      font-size: 38px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #cbd5e1;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 22px;
+      padding: 28px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      border-color: #3b82f6;
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #60a5fa;
+      margin-bottom: 12px;
+      font-size: 23px;
+    }
+
+    .card p, .card li {
+      color: #cbd5e1;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 15px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    li::before {
+      content: "✓ ";
+      color: #22c55e;
+      font-weight: bold;
+    }
+
+    .bonus {
+      background: linear-gradient(135deg, #0f172a, #111827);
+    }
+
+    .payment {
+      text-align: center;
+      background: #020617;
+    }
+
+    .payment-box {
+      max-width: 750px;
+      margin: auto;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 24px;
+      padding: 40px;
+    }
+
+    .payment-methods {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .method {
+      background: #111827;
+      border: 1px solid #334155;
+      padding: 14px 22px;
+      border-radius: 12px;
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .email {
+      color: #60a5fa;
+      font-weight: bold;
+      margin-top: 20px;
+      display: block;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      color: #94a3b8;
+      background: #020617;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 6%;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      section {
+        padding: 60px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="hero-text">
+      <div class="badge">IA Master Academy · By Arthur</div>
+
+      <h1>Aprenda a ganhar dinheiro com <span>Inteligência Artificial</span></h1>
+
+      <p class="subtitle">
+        Um curso completo com eBooks premium, prompts profissionais e estratégias práticas
+        para usar IA em vendas, produtividade, renda passiva e criação de produtos digitais.
+      </p>
+
+      <a href="#comprar" class="btn">Quero começar agora</a>
+    </div>
+
+    <div class="price-box">
+      <p class="old-price">De R$ 97,00</p>
+      <div class="price">R$ 43,00</div>
+      <p>Acesso ao pacote completo: eBooks + curso + bônus.</p>
+      <a href="#comprar" class="btn">Comprar agora</a>
+    </div>
+  </header>
+
+  <section>
+    <h2 class="section-title">O que você vai receber</h2>
+    <p class="section-subtitle">
+      Um pacote direto ao ponto para quem quer aprender IA de forma prática e aplicar no mundo real.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Módulo 01</h3>
+        <p><strong>Como Ganhar Dinheiro com ChatGPT</strong></p>
+        <ul>
+          <li>Modelos de monetização com IA</li>
+          <li>Como vender serviços digitais</li>
+          <li>Prompts que vendem</li>
+          <li>Plano para sair do zero</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Módulo 02</h3>
+        <p><strong>Como Criar Renda Passiva com IA</strong></p>
+        <ul>
+          <li>Criação de eBooks</li>
+          <li>Minicursos automatizados</li>
+          <li>Templates e packs digitais</li>
+          <li>Produtos que vendem online</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Módulo 03</h3>
+        <p><strong>Prompts Secretos de Produtividade e Vendas</strong></p>
+        <ul>
+          <li>Prompts para copywriting</li>
+          <li>Prompts para redes sociais</li>
+          <li>Prompts para negócios</li>
+          <li>Prompts para produtividade</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bonus">
+    <h2 class="section-title">Bônus exclusivos</h2>
+    <p class="section-subtitle">
+      Além do curso principal, você recebe materiais extras para acelerar sua execução.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Plano de Ação de 30 Dias</h3>
+        <p>Um cronograma para você saber exatamente o que fazer nas primeiras semanas.</p>
+      </div>
+
+      <div class="card">
+        <h3>Checklist IA Master</h3>
+        <p>Uma lista prática para acompanhar sua evolução e não se perder no processo.</p>
+      </div>
+
+      <div class="card">
+        <h3>50 Ideias de Negócios com IA</h3>
+        <p>Ideias prontas para você escolher um nicho e começar com mais clareza.</p>
+      </div>
+
+      <div class="card">
+        <h3>Templates de Mensagens</h3>
+        <p>Modelos para prospecção, atendimento, proposta e fechamento de vendas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Para quem é esse curso?</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Iniciantes</h3>
+        <p>Para quem está começando do zero e quer entender como usar IA para criar renda.</p>
+      </div>
+
+      <div class="card">
+        <h3>Freelancers</h3>
+        <p>Para quem quer vender serviços digitais com mais velocidade e profissionalismo.</p>
+      </div>
+
+      <div class="card">
+        <h3>Criadores digitais</h3>
+        <p>Para quem quer criar eBooks, posts, roteiros, produtos digitais e conteúdo com IA.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="comprar" class="payment">
+    <div class="payment-box">
+      <h2 class="section-title">Comece hoje por apenas R$ 43,00</h2>
+
+      <p>
+        Você recebe o pacote completo do IA Master Academy:
+        eBooks premium, curso, prompts profissionais e bônus práticos.
+      </p>
+
+      <div class="payment-methods">
+        <div class="method">Pix</div>
+        <div class="method">Cartão de crédito</div>
+        <div class="method">PayPal</div>
+      </div>
+
+      <span class="email">Pix Nubank: arthur1218br@gmail.com</span>
+      <span class="email">PayPal: arthur1218br@gmail.com</span>
+
+      <a href="COLOQUE_AQUI_O_LINK_DO_CHECKOUT_DA_KIWIFY" class="btn">
+        Comprar agora por R$ 43,00
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Aviso honesto</h2>
+    <p class="section-subtitle">
+      O curso entrega método, direção, materiais e prompts. Os resultados dependem da sua aplicação,
+      consistência e execução. Quem aplica mais, tem mais chances de colher resultados reais.
+    </p>
+  </section>
+
+  <footer class="footer">
+    © 2026 IA Master Academy · Criado por Arthur · Todos os direitos reservados.
+  </footer>
+
+</body>
+</html>
